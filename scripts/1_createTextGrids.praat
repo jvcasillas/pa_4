@@ -56,7 +56,7 @@ clearinfo
 # Begin loop ---------------------------------------------------
 #
 
-for i from number to XXXXX
+for i from number to 45
 	select Strings allFiles
 	fileName$ = Get string... i
 	prefix$ = fileName$ - ".wav"

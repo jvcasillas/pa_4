@@ -1,0 +1,545 @@
+---
+title: "Programming Assignment 4"
+author: "Monica Impaglia"
+date: '2022-04-18'
+output: github_document
+---
+
+## My Hypothesis 1:  I will finish this before midnight Monday##  
+##  I do not have a hypothesis as far as the relationship of the VOT, F1, F2.  I am more focused on learning how to use R better##
+```{r}
+library("ggplot2")  
+library("readr")  
+library("here")  
+library("tidyverse") 
+library("dplyr")
+library("purrr")  
+```
+```{r}
+args(read.csv)  
+read.csv(file = "C:\\Users\\Home\\OneDrive\\Desktop\\pa_4\\data\\bi01.csv") 
+bi01 <- read.csv("C:\\Users\\Home\\OneDrive\\Desktop\\pa_4\\data\\bi01.csv")  
+read.csv(file = "C:\\Users\\Home\\OneDrive\\Desktop\\pa_4\\data\\bi02.csv") 
+bi02 <- read.csv("C:\\Users\\Home\\OneDrive\\Desktop\\pa_4\\data\\bi02.csv")
+read.csv(file = "C:\\Users\\Home\\OneDrive\\Desktop\\pa_4\\data\\bi03.csv") 
+bi03 <- read.csv("C:\\Users\\Home\\OneDrive\\Desktop\\pa_4\\data\\bi03.csv")
+read.csv(file = "C:\\Users\\Home\\OneDrive\\Desktop\\pa_4\\data\\ne01.csv") 
+ne01 <- read.csv("C:\\Users\\Home\\OneDrive\\Desktop\\pa_4\\data\\ne01.csv")
+read.csv(file = "C:\\Users\\Home\\OneDrive\\Desktop\\pa_4\\data\\ne02.csv") 
+ne02 <- read.csv("C:\\Users\\Home\\OneDrive\\Desktop\\pa_4\\data\\ne02.csv")
+read.csv(file = "C:\\Users\\Home\\OneDrive\\Desktop\\pa_4\\data\\ne03.csv") 
+ne03 <- read.csv("C:\\Users\\Home\\OneDrive\\Desktop\\pa_4\\data\\ne03.csv")
+
+```
+
+```{r} 
+mean(bi01[1:3, "f1"])
+```
+
+```{r} 
+mean(bi01[16:18, "f1"])
+```
+
+```{r}
+mean(bi01[31:33, "f1"])
+```
+```{r}
+bi01af1 <- c(691.47, 612.97, 553.42)  
+mean(bi01af1)  
+bi01_af1mean <- 619.2867
+```
+```{r}
+mean(bi01[4:6, "f1"])
+```
+```{r}
+mean(bi01[19:21, "f1"])
+```
+
+```{r}
+mean(bi01[34:36, "f1"])
+```
+```{r}
+bi01ef1 <- c(655.8533, 535.2233, 567.49)
+mean(bi01ef1)
+```
+```{r}
+bi01_ef1mean <- 586.1889
+```
+
+```{r}
+mean(bi01[7:9, "f1"])
+```
+```{r}
+mean(bi01[22:24, "f1"])
+```
+
+```{r}
+mean(bi01[37:39, "f1"])
+```
+```{r}
+bi01if1 <- c(555.2367, 369.14, 406.06) 
+mean(bi01if1)  
+
+```
+```{r}
+bi01_if1mean <- 443.4789
+```
+```{r}
+mean(bi01[10:12, "f1"])
+```
+```{r}
+mean(bi01[25:27, "f1"])
+```
+
+```{r}
+mean(bi01[40:42, "f1"])
+```
+```{r}
+bi01of1 <- c(537.1933, 460.66, 545.4533)  
+mean(bi01of1)
+
+```
+```{r}
+bi01_of1mean <- 514.4355  
+```
+
+```{r}
+mean(bi01[13:15, "f1"])
+```
+```{r}
+mean(bi01[28:30, "f1"])
+```
+
+```{r}
+mean(bi01[43:45, "f1"])
+```
+```{r}  
+bi01uf1 <- c(403.08, 433.5567, 479.96)
+mean(bi01uf1)
+bi01_uf1mean <- mean(bi01uf1)
+
+```
+
+```{r} 
+mean(bi02[1:3, "f1"])
+```
+
+```{r} 
+mean(bi02[16:18, "f1"])
+```
+
+```{r}
+mean(bi02[31:33, "f1"])
+```
+```{r}
+bi02af1 <- c(683.7833, 739.06,  696.9533)  
+mean(bi02af1)  
+bi02_af1mean <- 706.5989
+```
+```{r}
+mean(bi02[4:6, "f1"])
+```
+```{r}
+mean(bi02[19:21, "f1"])
+```
+
+```{r}
+mean(bi02[34:36, "f1"])
+```
+```{r}
+bi02ef1 <- c(485.8433, 483.2167, 461.56)
+mean(bi01ef1)
+```
+```{r}
+bi02_ef1mean <- 476.8733
+```
+
+```{r}
+mean(bi02[7:9, "f1"])
+```
+```{r}
+mean(bi02[22:24, "f1"])
+```
+
+```{r}
+mean(bi02[37:39, "f1"])
+```
+```{r}
+bi02if1 <- c(340.7233, 407.27, 501.7267) 
+mean(bi02if1)  
+
+```
+```{r}
+bi02_if1mean <- 416.5733
+```
+```{r}
+mean(bi02[10:12, "f1"])
+```
+```{r}
+mean(bi02[25:27, "f1"])
+```
+
+```{r}
+mean(bi02[40:42, "f1"])
+```
+```{r}
+bi02of1 <- c(560.7667, 576.15, 546.91)  
+mean(bi02of1)
+
+```
+```{r}
+bi02_of1mean <- 561.2756  
+```
+
+```{r}
+mean(bi02[13:15, "f1"])
+```
+```{r}
+mean(bi02[28:30, "f1"])
+```
+
+```{r}
+mean(bi02[43:45, "f1"])
+```
+```{r}  
+bi02uf1 <- c(411.26, 472.2267, 486.0433)
+mean(bi02uf1)
+bi02_uf1mean <- mean(bi01uf1)
+
+```
+```{r}
+mean(bi03[1:3, "f1"])
+mean(bi03[16:18, "f1"])
+mean(bi03[31:33, "f1"])
+bi03af1 <- c(mean(bi03[1:3, "f1"]), mean(bi03[16:18, "f1"]), mean(bi03[31:33, "f1"]))
+bi03_af1mean <- mean(bi03af1)
+
+```
+```{r}
+mean(bi03[4:6, "f1"])
+mean(bi03[19:21, "f1"])
+mean(bi03[34-36, "f1"])
+bi03ef1 <- c(mean(bi03[4:6, "f1"]), mean(bi03[19:21, "f1"]), mean(bi03[34:36, "f1"]))
+bi03_ef1mean <- mean(bi03ef1)
+
+```
+```{r}
+mean(bi03[7:9, "f1"])
+mean(bi03[22:24, "f1"])
+mean(bi03[37:39, "f1"])
+bi03if1 <- c(mean(bi03[7:9, "f1"]), mean(bi03[22:24, "f1"]), mean(bi03[37:39, "f1"]))
+bi03_if1mean <- mean(bi03if1)
+
+```
+
+```{r}
+mean(bi03[10:12, "f1"])
+mean(bi03[25:27, "f1"])
+mean(bi03[40:42, "f1"])
+bi03of1 <- c(mean(bi03[10:12, "f1"]), mean(bi03[25:27, "f1"]), mean(bi03[40:42, "f1"]))
+bi03_of1mean <- mean(bi03of1)
+
+```
+```{r}
+mean(bi03[13:15, "f1"])
+mean(bi03[28:30, "f1"])
+mean(bi03[43:45, "f1"])
+bi03uf1 <- c(mean(bi03[13:15, "f1"]), mean(bi03[28:30, "f1"]), mean(bi03[43:45, "f1"]))
+bi03_uf1mean <- mean(bi03uf1)
+
+```
+
+
+```{r}
+mean(ne01[1:3, "f1"])
+mean(ne01[16:18, "f1"])
+mean(ne01[31:33, "f1"])
+ne01af1 <- c(mean(ne01[1:3, "f1"]), mean(ne01[16:18, "f1"]), mean(ne01[31:33, "f1"]))
+ne01_af1mean <- mean(ne01af1)
+
+```
+```{r}
+mean(ne01[4:6, "f1"])
+mean(ne01[19:21, "f1"])
+mean(ne01[34:36, "f1"])
+ne01ef1 <- c(mean(ne01[4:6, "f1"]), mean(ne01[19:21, "f1"]), mean(ne01[34:36, "f1"]))
+ne01_ef1mean <- mean(ne01ef1)
+
+```
+```{r}
+mean(ne01[7:9, "f1"])
+mean(ne01[22:24, "f1"])
+mean(ne01[37:39, "f1"])
+ne01if1 <- c(mean(ne01[7:9, "f1"]), mean(ne01[22:24, "f1"]), mean(ne01[37:39, "f1"]))
+ne01_if1mean <- mean(ne01if1)
+
+```
+
+```{r}
+mean(ne01[10:12, "f1"])
+mean(ne01[25:27, "f1"])
+mean(ne01[40:42, "f1"])
+ne01of1 <- c(mean(ne01[10:12, "f1"]), mean(ne01[25:27, "f1"]), mean(ne01[40:42, "f1"]))
+ne01_of1mean <- mean(ne01of1)
+
+```
+```{r}
+mean(ne01[13:15, "f1"])
+mean(ne01[28:30, "f1"])
+mean(ne01[43:45, "f1"])
+ne01uf1 <- c(mean(ne01[13:15, "f1"]), mean(ne01[28:30, "f1"]), mean(ne01[43:45, "f1"]))
+ne01_uf1mean <- mean(ne01uf1)
+
+```
+
+```{r}
+mean(ne02[1:3, "f1"])
+mean(ne02[16:18, "f1"])
+mean(ne02[31:33, "f1"])
+ne02af1 <- c(mean(ne02[1:3, "f1"]), mean(ne02[16:18, "f1"]), mean(ne02[31:33, "f1"]))
+ne02_af1mean <- mean(ne02af1)
+
+```
+```{r}
+mean(ne02[4:6, "f1"])
+mean(ne02[19:21, "f1"])
+mean(ne02[34:36, "f1"])
+ne02ef1 <- c(mean(ne02[4:6, "f1"]), mean(ne02[19:21, "f1"]), mean(ne02[34:36, "f1"]))
+ne02_ef1mean <- mean(ne02ef1)
+
+```
+```{r}
+mean(ne02[7:9, "f1"])
+mean(ne02[22:24, "f1"])
+mean(ne02[37:39, "f1"])
+ne02if1 <- c(mean(ne02[7:9, "f1"]), mean(ne02[22:24, "f1"]), mean(ne02[37:39, "f1"]))
+ne02_if1mean <- mean(ne02if1)
+
+```
+
+```{r}
+mean(ne02[10:12, "f1"])
+mean(ne02[25:27, "f1"])
+mean(ne02[40:42, "f1"])
+ne02of1 <- c(mean(ne02[10:12, "f1"]), mean(ne02[25:27, "f1"]), mean(ne02[40:42, "f1"]))
+ne02_of1mean <- mean(ne02of1)
+
+```
+```{r}
+mean(ne02[13:15, "f1"])
+mean(ne02[28:30, "f1"])
+mean(ne02[43:45, "f1"])
+ne02uf1 <- c(mean(ne02[13:15, "f1"]), mean(ne02[28:30, "f1"]), mean(ne02[43:45, "f1"]))
+ne02_uf1mean <- mean(ne02uf1)
+
+```
+
+
+```{r}
+mean(ne03[1:3, "f1"])
+mean(ne03[16:18, "f1"])
+mean(ne03[31:33, "f1"])
+ne03af1 <- c(mean(ne03[1:3, "f1"]), mean(ne03[16:18, "f1"]), mean(ne03[31:33, "f1"]))
+ne03_af1mean <- mean(ne03af1)
+
+```
+```{r}
+mean(ne03[4:6, "f1"])
+mean(ne03[19:21, "f1"])
+mean(ne02[34:36, "f1"])
+ne03ef1 <- c(mean(ne03[4:6, "f1"]), mean(ne03[19:21, "f1"]), mean(ne03[34:36, "f1"]))
+ne03_ef1mean <- mean(ne03ef1)
+
+```
+```{r}
+mean(ne03[7:9, "f1"])
+mean(ne03[22:24, "f1"])
+mean(ne03[37:39, "f1"])
+ne03if1 <- c(mean(ne03[7:9, "f1"]), mean(ne03[22:24, "f1"]), mean(ne03[37:39, "f1"]))
+ne03_if1mean <- mean(ne03if1)
+
+```
+
+```{r}
+mean(ne03[10:12, "f1"])
+mean(ne03[25:27, "f1"])
+mean(ne03[40:42, "f1"])
+ne03of1 <- c(mean(ne03[10:12, "f1"]), mean(ne03[25:27, "f1"]), mean(ne03[40:42, "f1"]))
+ne03_of1mean <- mean(ne03of1)
+
+```
+```{r}
+mean(ne03[13:15, "f1"])
+mean(ne03[28:30, "f1"])
+mean(ne03[43:45, "f1"])
+ne03uf1 <- c(mean(ne03[13:15, "f1"]), mean(ne03[28:30, "f1"]), mean(ne03[43:45, "f1"]))
+ne03_uf1mean <- mean(ne03uf1)
+
+```
+```{r}
+mean(bi01[1:15, "vot"])
+bi01_meanvotK <- mean(bi01[1:15, "vot"])
+mean(bi01[16:30, "vot"])  
+bi01_meantvotP <- mean(bi01[16:30, "vot"]) 
+mean(bi01[31:45, "vot"])
+bi01_meanvotT <-  mean(bi01[31:45, "vot"])
+```
+
+```{r}
+mean(bi02[1:15, "vot"])
+bi02_meanvotK <- mean(bi02[1:15, "vot"])
+mean(bi02[16:30, "vot"])  
+bi02_meantvotP <- mean(bi02[16:30, "vot"]) 
+mean(bi02[31:45, "vot"])
+bi02_meanvotT <-  mean(bi02[31:45, "vot"])
+```
+```{r}
+mean(bi03[1:15, "vot"])
+bi03_meanvotK <- mean(bi03[1:15, "vot"])
+mean(bi03[16:30, "vot"])  
+bi03_meantvotP <- mean(bi03[16:30, "vot"]) 
+mean(bi03[31:45, "vot"])
+bi03_meanvotT <-  mean(bi03[31:45, "vot"])
+```
+
+
+```{r}
+mean(ne01[1:15, "vot"])
+ne01_meanvotK <- mean(ne01[1:15, "vot"])
+mean(ne01[16:30, "vot"])  
+ne01_meantvotP <- mean(ne01[16:30, "vot"]) 
+mean(ne01[31:45, "vot"])
+ne01_meanvotT <-  mean(ne01[31:45, "vot"])
+```
+
+
+```{r}
+mean(ne02[1:15, "vot"])
+ne02_meanvotK <- mean(ne01[1:15, "vot"])
+mean(ne02[16:30, "vot"])  
+ne02_meantvotP <- mean(ne02[16:30, "vot"]) 
+mean(ne02[31:45, "vot"])
+ne02_meanvotT <-  mean(ne02[31:45, "vot"])
+```
+
+
+```{r}
+mean(ne03[1:15, "vot"])
+ne03_meanvotK <- mean(ne03[1:15, "vot"])
+mean(ne03[16:30, "vot"])  
+ne03_meantvotP <- mean(ne03[16:30, "vot"]) 
+mean(ne03[31:45, "vot"])
+ne03_meanvotT <-  mean(ne03[31:45, "vot"])
+```
+
+
+
+```{r}
+participant <- c("b1", "b2", "b3", "n1", "n2", "n3")
+f1a <- c(bi01_af1mean, bi02_af1mean, bi03_af1mean, ne01_af1mean, ne02_af1mean, ne03_af1mean)
+f1e <- c(bi01_ef1mean, bi02_ef1mean, bi03_ef1mean, ne01_ef1mean, ne02_ef1mean, ne03_ef1mean)
+f1i <- c(bi01_if1mean, bi02_if1mean, bi03_if1mean, ne01_if1mean, ne02_if1mean, ne03_if1mean)
+f1o <- c(bi01_of1mean, bi02_of1mean, bi03_of1mean, ne01_of1mean, ne02_of1mean, ne03_of1mean)
+f1u <- c(bi01_uf1mean, bi02_uf1mean, bi03_uf1mean, ne01_uf1mean, ne02_uf1mean, ne03_uf1mean)
+votK <- c(bi01_meanvotK, bi02_meanvotK, bi03_meanvotK, ne01_meanvotK, ne02_meanvotK, ne03_meanvotK)
+votP <- c(bi01_meantvotP, bi02_meantvotP, bi03_meantvotP, ne01_meantvotP, ne02_meantvotP, ne03_meantvotP)
+votT <- c(bi01_meanvotT, bi02_meanvotT, bi03_meanvotT, ne01_meanvotT, ne02_meanvotT, ne03_meanvotT)  
+all_participants <- data.frame(participant, f1a, f1e, f1i, f1o, f1u, votK, votP, votT)
+
+
+
+```
+```{r}
+ggplot(data = all_participants, aes(x = votK, y = f1a, color = participant)) +  
+  geom_point()  
+```
+```{r}
+ggplot(data = all_participants, aes(x = votK, y = f1e, color = participant)) +  
+  geom_point()  
+```
+
+```{r}
+ggplot(data = all_participants, aes(x = votK, y = f1i, color = participant)) +  
+  geom_point()  
+```
+
+```{r}
+ggplot(data = all_participants, aes(x = votK, y = f1o, color = participant)) +  
+  geom_point()  
+```
+```{r}
+ggplot(data = all_participants, aes(x = votK, y = f1u, color = participant)) +  
+  geom_point()  
+```
+
+```{r}
+ggplot(data = all_participants, aes(x = votP, y = f1a, color = participant)) +  
+  geom_point()  
+```
+```{r}
+ggplot(data = all_participants, aes(x = votP, y = f1e, color = participant)) +  
+  geom_point()  
+```
+
+```{r}
+ggplot(data = all_participants, aes(x = votP, y = f1i, color = participant)) +  
+  geom_point()  
+```
+
+```{r}
+ggplot(data = all_participants, aes(x = votP, y = f1o, color = participant)) +  
+  geom_point()  
+```
+```{r}
+ggplot(data = all_participants, aes(x = votP, y = f1u, color = participant)) +  
+  geom_point()  
+```
+
+```{r}
+ggplot(data = all_participants, aes(x = votT, y = f1a, color = participant)) +  
+  geom_point()  
+```
+```{r}
+ggplot(data = all_participants, aes(x = votT, y = f1e, color = participant)) +  
+  geom_point()  
+```
+
+```{r}
+ggplot(data = all_participants, aes(x = votT, y = f1i, color = participant)) +  
+  geom_point()  
+```
+
+```{r}
+ggplot(data = all_participants, aes(x = votT, y = f1o, color = participant)) +  
+  geom_point()  
+```
+```{r}
+ggplot(data = all_participants, aes(x = votT, y = f1u, color = participant)) +  
+  geom_point()  
+```
+
+
+## My original hypothesis of finishing pa_4 before midnight on Monday was incorrect.  On the other hand, I am very happy and proud of my progress in using R.  I was able to manipulate the data in my .csv files to find means of specific sections, then create a new data frame from those means and plot the resulting data.##
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
